@@ -9,7 +9,7 @@ on:
 
 jobs:
   renew:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     
     permissions:
@@ -89,5 +89,6 @@ jobs:
         repository: ${{ github.repository }}
 
         older-than-seconds: 86400  # 删除24小时前的记录
+
 
 
