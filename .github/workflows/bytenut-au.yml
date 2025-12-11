@@ -58,14 +58,6 @@ jobs:
         name: error-screenshot
         path: scripts/error_screenshot.png
         if-no-files-found: ignore
-    
-    - name: Send notification on failure
-      if: failure()
-      run: |
-        echo "自动登录失败，请检查日志和截图"
-        echo "时间: $(date)"
-        echo "工作流: ${{ github.workflow }}"
-        echo "运行ID: ${{ github.run_id }}"
 
     - name: Clean up old workflow runs
       uses: MajorScruffy/delete-old-workflow-runs@v0.3.0
@@ -74,6 +66,7 @@ jobs:
       with:
         repository: ${{ github.repository }}
         older-than-seconds: 86400  # 删除24小时前的记录
+
 
 
 
